@@ -1,0 +1,24 @@
+/*Card Title Default*/
+h2 {
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 2;
+    font-family: Gilroy-Bold;
+}
+
+/*Subtext Default*/
+h4 {
+    font-size: 12px;
+    color: #666;
+    z-index: 2;
+    font-family: Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 2;
+    font-family: Gilroy-Bold;
+    padding-left: 20px;
+    padding-top: 20px;
+}
