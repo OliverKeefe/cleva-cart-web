@@ -2,11 +2,13 @@ import styled, { ThemeProvider } from 'styled-components';
 import { lightTheme } from "./themes/Themes.ts";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './components/NavbarTop/NavbarTop'
-import NavbarTop from "./components/NavbarTop/NavbarTop.tsx";
-import WideTile from "./components/ShoppingList/WideTile.tsx";
-import ShoppingList from "./components/ShoppingList/ShoppingList.tsx";
 import './App.css'
-import {Card, Col, Row} from "react-bootstrap";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import HomeScreen from "./screens/HomeScreen/HomeScreen";
+import NavbarTop from "./components/NavbarTop/NavbarTop.tsx";
+import React from "react";
+import ShoppingListScreen from "./screens/ShoppingListScreen/ShoppingListScreen.tsx";
+import MealPlannerScreen from "./screens/MealPlannerScreen/MealPlanScreen.tsx";
 
 const AppContainer = styled.div`
     display: flex;
@@ -27,7 +29,8 @@ const AppContainer = styled.div`
 `;
 
 const PageBackground = styled.div`
-    background-image: radial-gradient(circle at top right, rgba(39, 0, 255, 0.8), rgba(255, 99, 0, 0.4), #FFF);
+    //background-image: radial-gradient(circle at top right, rgba(39, 0, 255, 0.8), rgba(255, 99, 0, 0.4), #FFF);
+    background-color: ${(props) => props.theme.colors.background};
     background-size: cover;
     background-position: center;
     top: 0;
@@ -37,71 +40,24 @@ const PageBackground = styled.div`
     z-index: 0;
 `;
 
-
-const shoppingItems = [
-    {
-        productName: 'Organic Apples',
-        productImage: 'https://via.placeholder.com/150',
-        sourceProducers: 'Local Farms Co.',
-        sourceSuperMarket: 'Whole Foods',
-        productDescription: 'Fresh organic apples grown locally.',
-        quantity: '5 lbs',
-        expectedDelivery: 'September 25, 2024',
-    },
-    {
-        productName: 'Almond Milk',
-        productImage: 'https://via.placeholder.com/150',
-        sourceProducers: 'Almond Breeze',
-        sourceSuperMarket: 'Trader Joe\'s',
-        productDescription: 'Unsweetened almond milk, 1 quart.',
-        quantity: '2 cartons',
-        expectedDelivery: 'September 26, 2024',
-    },
-    {
-        productName: 'Whole Wheat Bread',
-        productImage: 'https://via.placeholder.com/150',
-        sourceProducers: 'Bakery Fresh Co.',
-        sourceSuperMarket: 'Walmart',
-        productDescription: 'Healthy whole wheat bread loaf.',
-        quantity: '1 loaf',
-        expectedDelivery: 'September 27, 2024',
-    },
-    // Add more items...
-];
-
 function App() {
-
     return (
-            <ThemeProvider theme={lightTheme}>
-                <PageBackground>
+        <ThemeProvider theme={lightTheme}>
+            <PageBackground>
                 <AppContainer>
-                <NavbarTop />
-                        <Row>
-                            <Col>
-                            <Card>
-                                <h1>Shopping List</h1>
-                                <ShoppingList items={shoppingItems}/>
-                            </Card>
-                            </Col>
-                        <Col>
-                            <WideTile
-                                title="This Weeks Meal Plan"
-                                subtext="Meals"
-                                bgColor="#56D0FF"
-                                image="https://via.placeholder.com/150/1E90FF/FFFFFF?text=Yoga"
-                            />
-                            <WideTile
-                                title="Example Tile"
-                                subtext="Finance"
-                                bgColor="#5CC397"
-                                image="https://via.placeholder.com/150/32CD32/FFFFFF?text=Workout"
-                            />
-                        </Col>
-                        </Row>
+                    <NavbarTop />
+                        <Router>
+                            <Routes>
+                                <Route path="/" element={<HomeScreen />} />
+                                <Route path="/shoppinglist" element={<ShoppingListScreen />} />
+                                <Route path="/mealplan" element={<MealPlannerScreen />} />
+
+                            </Routes>
+                        </Router>
                 </AppContainer>
-                </PageBackground>
-                </ThemeProvider>
-                );
+            </PageBackground>
+        </ThemeProvider>
+    );
 }
 
 export default App

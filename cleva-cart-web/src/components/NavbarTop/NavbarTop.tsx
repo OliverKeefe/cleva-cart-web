@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 
 const StyledNavbar = styled(Navbar)`
-    background-color: ${(props) => props.theme.colors.white};
-    background: rgba(255, 255, 255, .0);
-    
+    background-color: rgb(0, 0, 0);
+
     .navbar-brand, .nav-link {
-        font-family: Helvetica;
+        font-family: Gilroy-Bold;
         line-height: 1.5;
         font-weight: 400;
-        color: ${(props) => props.theme.colors.fontColor};
+        color: ${(props) => props.theme.colors.white};
+
         &:hover {
             color: ${(props) => props.theme.colors.dark};
         }
@@ -31,7 +31,6 @@ const NavbarTop: React.FC = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <StyledNavLink href="#home">Home</StyledNavLink>
 
                     </Nav>
                 </Navbar.Collapse>

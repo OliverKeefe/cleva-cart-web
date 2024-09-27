@@ -8,34 +8,7 @@ import styled, {ThemeProvider} from "styled-components";
 import {lightTheme} from "../../themes/Themes.ts";
 import {Link} from "react-router-dom";
 
-const AppContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: flex-start; 
-    padding: 20px;
-    padding-top: 5%;  
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, .8);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
-    backdrop-filter: blur(20px);
-    /* Safari */
-    -webkit-backdrop-filter: blur(20px); 
-    
-`;
-
-const PageBackground = styled.div`
-    background-image: radial-gradient(circle at top right, rgba(39, 0, 255, 0.8), rgba(255, 99, 0, 0.4), #FFF);
-    background-size: cover;
-    background-position: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-`;
 
 
 const shoppingItems = [
@@ -69,12 +42,8 @@ const shoppingItems = [
     // Add more items...
 ];
 
-
 const HomeScreen: React.FC = () => {
     return (
-        <PageBackground>
-            <AppContainer>
-                <NavbarTop />
                 <Row>
                     <Col>
                         <Card>
@@ -102,8 +71,6 @@ const HomeScreen: React.FC = () => {
                         />
                     </Col>
                 </Row>
-            </AppContainer>
-        </PageBackground>
     );
 }
 
