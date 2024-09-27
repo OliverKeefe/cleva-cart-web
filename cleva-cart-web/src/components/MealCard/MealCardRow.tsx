@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Card, Row, Col } from 'react-bootstrap'; // Assuming you're using react-bootstrap
+import { Card, Row, Col } from 'react-bootstrap';
 
 const CardContainer = styled.div`
     display: flex;
@@ -57,10 +57,10 @@ const InfoItem = styled.div`
 
 const MealCardRow = () => {
     const meals = new Map([
-        [1, { title: "Overnight Oats with Mixed Berries", description: "This no-cook method allows the oats to absorb liquid overnight.", prepTime: "5 mins", cookTime: "20 mins" }],
-        [2, { title: "Ham Sandwich with Chips", description: "A quick and easy ham sandwich with lettuce and salad cream.", prepTime: "10 mins", cookTime: "23 mins" }],
-        [3, { title: "Spicy Cajun Pasta Salad", description: "A refreshing pasta salad with veggies.", prepTime: "15 mins", cookTime: "8 mins" }],
-        [4, { title: "Chicken Stir Fry with Puk Choi", description: "A healthy chicken stir fry with puk choi and gluten free soy sauce.", prepTime: "20 mins", cookTime: "15 mins" }]
+        [1, { title: "Overnight Oats with Mixed Berries", description: "This no-cook method allows the oats to absorb liquid overnight.", prepTime: "5 mins", cookTime: "20 mins", servings: "1" }],
+        [2, { title: "Ham Sandwich with Chips", description: "A quick and easy ham sandwich with lettuce and salad cream.", prepTime: "10 mins", cookTime: "23 mins", servings: "1" }],
+        [3, { title: "Spicy Cajun Pasta Salad", description: "A refreshing pasta salad with veggies.", prepTime: "15 mins", cookTime: "8 mins", servings: "1" }],
+        [4, { title: "Chicken Stir Fry with Puk Choi", description: "A healthy chicken stir fry with puk choi and gluten free soy sauce.", prepTime: "20 mins", cookTime: "15 mins", servings: "1" }]
     ]);
 
     return (
@@ -77,7 +77,7 @@ const MealCardRow = () => {
                             <InfoSection>
                                 <InfoItem>
                                     <strong>Servings</strong>
-                                    <p>1</p>
+                                    <p>{meal.servings}</p>
                                 </InfoItem>
                                 <InfoItem>
                                     <strong>Preparation</strong>
